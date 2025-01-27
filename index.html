@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Memes 🚀</title>
+  <style>
+    /* Modern Meme Grid */
+    .meme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    
+    .meme-item img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .meme-item img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Fresh Memes Daily</h1>
+  <div class="meme-grid" id="gallery"></div>
+
+  <script>
+    // Auto-load memes from GitHub folder
+    const memeFolder = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/memes/';
+    
+    // List of meme filenames (update this array after uploading new memes)
+    const memes = [
+      'meme1.jpg',
+      'meme2.png',
+      'latest-meme.gif'
+    ];
+
+    // Generate gallery
+    const gallery = document.getElementById('gallery');
+    memes.forEach(meme => {
+      const img = document.createElement('img');
+      img.src = `${memeFolder}${meme}`;
+      img.loading = 'lazy';
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
